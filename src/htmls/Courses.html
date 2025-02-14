@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Css/Courses.css" />
+    <title>Courses | Learning Platform</title>
+  </head>
+  <body onload="updateNavBar()">
+    <nav>
+      <div class="nav__logo"><a href="#">SeekhoSphere</a></div>
+      <!-- <div class="nav__menu" id="menuToggle" onclick="toggleMenu()">
+        <div class="nav__link">&#9776;</div>
+      </div> -->
+      <div class="nav__menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav__links" id="navLinks">
+        <li class="link"><a href="index.html">Home</a></li>
+        <li class="link"><a href="AboutPage.html">About Us</a></li>
+        <li class="link"><a href="#" class="nav__btn" id = "authButton">Sign In</a></li>
+      </ul>
+    </nav>
+
+    <section class="courses-container">
+      <h1>Available Courses</h1>
+
+      <!-- SSC Section -->
+      <div class="course-section">
+        <h2>SSC Courses</h2>
+        <div class="courses">
+          <div class="course-card">
+            <h3>Mathematics</h3>
+            <p>Understanding algebra, geometry, and more.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Science</h3>
+            <p>Explore physics, chemistry, and biology concepts.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>English</h3>
+            <p>Improve your grammar and literature skills.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Social Studies</h3>
+            <p>
+              Exploring Society, Cultures and Connections
+            </p>
+            <button>Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HSC Section -->
+      <div class="course-section">
+        <h2>HSC Courses</h2>
+        <div class="courses">
+          <div class="course-card">
+            <h3>Physics</h3>
+            <p>Dive into the fundamentals of physics.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Chemistry</h3>
+            <p>Understand chemical reactions and compounds.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Biology</h3>
+            <p>Study living organisms and life processes.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Mathematics</h3>
+            <p>Advanced topics in mathematics.</p>
+            <button>Learn More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technology Section -->
+      <div class="course-section">
+        <h2>Technology Courses</h2>
+        <div class="courses">
+          <div class="course-card">
+            <h3>Web Development</h3>
+            <p>Learn to build dynamic websites with HTML, CSS, and JavaScript.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Data Science</h3>
+            <p>Master data analysis and machine learning techniques.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Machine Learning</h3>
+            <p>Explore algorithms and techniques for predictive analytics.</p>
+            <button>Learn More</button>
+          </div>
+          <div class="course-card">
+            <h3>Cybersecurity</h3>
+            <p>Learn to protect systems and networks from cyber threats.</p>
+            <button>Learn More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../Jsp/Courses.js"></script>
+    <script src="../Jsp/Auth.js"></script>
+  </body>
+</html>

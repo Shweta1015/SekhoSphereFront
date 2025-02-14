@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        customPurple: {
+                            1: '#7400B8',
+                            2: '#6930C3',
+                            3: '#5E60CE',
+                        },
+                        customBlue: {
+                            1: '#5390D9',
+                            2: '#4EA8DE',
+                            3: '#48BFE3',
+                            4: '#56CFE1',
+                            5: '#64DFDF',
+                            6: '#72EFDD',
+                            7: '#80FFDB',
+                        },
+                    }
+                }
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-customBlue-7 flex items-center justify-center h-screen">
+    <div class="max-w-[500px] bg-white rounded-2xl p-5 shadow-lg">
+        <div class="pl-14 pt-5">
+            <img src="images/signUpImg.jpg" alt="Sign Up" class="rounded-lg">
+        </div>
+        <div class="text-center max-w-50 grid gap-4">
+            <h1 class="p-5 font-bold text-2xl text-customPurple-2">WELCOME... to this website!!!</h1>
+        </div>
+        <div class="flex justify-center">
+            <a href="signIn.html">
+                <button
+                    class="bg-customPurple-3 py-2 px-5 text-center text-white font-semibold rounded-lg transform transition hover:scale-110 hover:bg-customPurple-1 hover:text-customBlue-7">
+                    Sign In
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

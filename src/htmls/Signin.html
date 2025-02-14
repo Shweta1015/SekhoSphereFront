@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../Css/Signin.css">
+    <title>SignIn</title>
+</head>
+
+<body class="bg-neutral-300 flex items-center justify-center h-screen">
+
+ <!-- for confirmation status -->
+ <input type="hidden" id="status" value="">
+ 
+    <div class="max-w-[600px] bg-white rounded-2xl md:grid grid-cols-2 gap-20 items-center p-5">
+        <div>
+            <img src="https://media.giphy.com/media/IgLIVXrBcID9cExa6r/giphy.gif?cid=790b7611w4y4z0ytb3mt1v4hz3zarqim8o9ux09g7pq7yke9&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="signin">
+            <a href="signUp.html" class="underline hidden md:block">Create an account</a>
+        </div>
+        <div class="max-w-60 grid gap-5">
+            <h1 class="text-4xl font-bold">Sign In</h1>
+            <form id="Signin-form" class="space-y-7">
+                <div class="flex border-b border-gray-300 justify-between">
+                    <div><i class="fa-solid fa-user"></i></div>
+                    <input type="email" name="umail" placeholder="Your Email" 
+                        class="focus:outline-none focus:border-transparent" />
+                </div>
+                <div class="flex border-b border-gray-300 justify-between">
+                    <div><i class="fa-solid fa-lock"></i></div>
+                    <input type="password" name="upass" placeholder="Password" 
+                        class="focus:outline-none focus:border-transparent" />
+                </div>
+                <div class="flex">
+                    <a href="forgotPass.html" class=" text-sm pl-3 text-blue-500 underline hover:text-blue-700">Forget Password?</a>
+                </div>
+                <button class="bg-violet-800 py-2 px-3 font-semibold rounded-lg transform transition hover:scale-130 hover:bg-black hover:text-violet-800 hover:font-bold">Login</button>
+                 
+                <div class="flex items-center">
+                    <p class="mx-2">or login with</p>
+                    <div class="flex space-x-2">
+                        <img src="images/faceboook.jpg" alt="">
+                        <img src="images/twitter.jpg" alt="">
+                        <img src="images/google.jpg" alt="">
+                    </div>
+                </div>
+                <a href="Signup.html" class="underline mt-4 pl-12 md:hidden">Create an account</a>
+            </form>
+        </div>
+    </div>
+    
+    <!-- for confirmation message  -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="../Jsp/Signin.js"></script>
+</body>
+</html>
