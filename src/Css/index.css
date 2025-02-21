@@ -40,6 +40,7 @@ nav {
   transition: 0.3s;
 }
 
+/* Hamburger menu icon */
 .nav__menu {
   display: none; 
   font-size: 1.8rem;
@@ -47,11 +48,47 @@ nav {
   color: var(--white);
 }
 
-.nav__links {
+/* Navbar links (Default horizontal) */
+.nav__links{
   list-style: none;
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 800px){
+  .nav__menu{
+    display: block;
+  }
+
+  .nav__links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 1px;
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+
+  .nav__links.show{
+    display: flex;
+  }
+  
+  .nav__links li {
+    padding: 10px;
+    text-align: center;
+    list-style: none;
+  }
+  
+  .nav__links a {
+    text-decoration: none;
+    color: var(--white);
+    display: block;
+  }
 }
 
 .link a {
@@ -166,7 +203,7 @@ nav {
 
 .image__container img {
   width: 100%;
-  max-width: 600px; /* Adjust as needed for larger image */
+  max-width: 600px; 
   margin: auto;
   border-radius: 10px;
 }
@@ -193,54 +230,4 @@ nav {
 
 .image__content li {
   margin-bottom: 0.5rem;
-}
-
-@media (max-width: 900px) {
-  .nav__menu{
-    display: block;
-  }
-  .nav__links {
-    display: none; /* Hide links by default on mobile */
-    flex-direction: column; /* Stack links vertically */
-    position: absolute; /* Position links absolutely */
-    background-color: var(--primary-color);    /* Background color for dropdown */
-    top: 100%; /* Place dropdown below the navbar */
-    left: 0;
-    right: 0;
-    z-index: 1; /* Ensure links appear above other elements */
-  }
-
-  .nav__menu {
-    display: block; /* Show menu icon */
-  }
-
-  .nav__links.show {
-    display: flex; /* Show links when toggled */
-  }
-
-  .link a {
-    padding: 1rem; /* Increase padding for easier tapping */
-    text-align: center; /* Center text */
-  }
-
-  .container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .content__container {
-    text-align: center;
-  }
-
-  .content__container form {
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-  .image__container {
-    grid-area: 1/1/2/2;
-  }
-
-  .image__container img {
-    max-width: 100%; /* Ensure image scales down on smaller screens */
-  }
 }

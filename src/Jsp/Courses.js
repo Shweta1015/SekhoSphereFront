@@ -1,18 +1,14 @@
 const API_URL = "http://localhost:8080/api/courses";
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menu = document.querySelector('.nav__menu');
-    const navLinks = document.querySelector('.nav__links');
+//for menubar
+document.addEventListener("DOMContentLoaded", function(){
+    const menuIcon = document.querySelector(".nav__menu");
+    const navLinks = document.querySelector(".nav__links");
 
-    if (menu && navLinks) {
-        menu.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-        });
-    } else {
-        console.error("Menu or navigation links not found.");
-    }
+    menuIcon.addEventListener("click", function(){
+        navLinks.classList.toggle("show");
+    });
 });
-
 
 async function fetchCourses() {
     try {

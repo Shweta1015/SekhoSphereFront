@@ -39,18 +39,56 @@ nav {
   text-decoration: none;
   transition: 0.3s;
 }
+
+/* Hamburger menu icon */
 .nav__menu {
   display: none; 
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: var(--white);
 }
 
+/* Navbar links (Default horizontal) */
 .nav__links {
   list-style: none;
-  display: flex !important;
+  display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 800px){
+  .nav__menu{
+    display: block;
+  }
+
+  .nav__links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 1px;
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    border-radius: 8px;
+    z-index: 1000;
+  }
+
+  .nav__links.show{
+    display: flex;
+  }
+  
+  .nav__links li {
+    padding: 10px;
+    text-align: center;
+    list-style: none;
+  }
+  
+  .nav__links a {
+    text-decoration: none;
+    color: var(--white);
+    display: block;
+  }
 }
 
 .link a {
@@ -191,26 +229,4 @@ nav {
   }
 }
 
-@media (max-width: 900px) {
-  .nav__links {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      background-color: var(--white);
-      top: 100%;
-      left: 0;
-      right: 0;
-      z-index: 1;
-      padding: 1rem;
-  }
-
-  .nav__menu {
-      display: block;
-      cursor: pointer;
-  }
-
-  .nav__links.show {
-      display: flex; 
-  }
-}
 
