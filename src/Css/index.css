@@ -173,6 +173,7 @@ nav {
   font-size: 0.8rem;
   outline: none;
   border: none;
+  border-radius: 8px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -185,6 +186,7 @@ nav {
   color: var(--white);
   outline: none;
   border: none;
+  border-radius: 8px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   cursor: pointer;
