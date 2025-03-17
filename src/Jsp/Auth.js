@@ -19,7 +19,7 @@ function updateNavBar(){
     }else{
         //User is not logged in
         authButton.textContent = "Sign In";
-        authButton.href = "Signin.html";
+        authButton.href = "SignUpIn.html";
         authButton.removeEventListener("click", logoutUser);   //Remove onclick event if any
         localStorage.removeItem("authToken");
     }
@@ -47,7 +47,7 @@ function logoutUser(){
 
     //Redirect to sign-in page after logout
     setTimeout(() =>{
-        window.location.href = "Signin.html";
+        window.location.href = "SignUpIn.html";
     }, 1500);
 }
 

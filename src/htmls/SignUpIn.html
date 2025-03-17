@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Signup Form</title>
-    <link rel="stylesheet" href="../Css/Demo.css">
+    <link rel="stylesheet" href="../Css/SignUpIn.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
   <body>
 
       <div class="container">
           <div class="form-box login">
-              <form action="#">
+              <form id="login-form">
                   <h1>Login</h1>
                   <div class="input-box">
                       <input type="email" name="umail" placeholder="Email" required>
@@ -22,7 +22,7 @@
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
                   <div class="forgot-link">
-                      <a href="#">Forgot Password?</a>
+                      <a href="ForgetPass.html">Forgot Password?</a>
                   </div>
                   <button type="submit" class="btn">Login</button>
                   <p>or login with social platforms</p>
@@ -36,7 +36,7 @@
           </div>
 
           <div class="form-box register">
-              <form id="login-form">
+              <form id="register-form">
                   <h1>Registration</h1>
                   <div class="input-box">
                       <input type="text" name="nameRegister" placeholder="Username" required>
@@ -50,6 +50,10 @@
                       <input type="password" name="passRegister" placeholder="Password" required>
                       <i class='bx bxs-lock-alt' ></i>
                   </div>
+                  <div class="input-box">
+                    <input type="text" name="phoneRegister" placeholder="Contact no." required>
+                    <i class='bx bxs-phone' ></box-icon></i>
+                </div>
                   <button type="submit" class="btn">Register</button>
                   <p>or register with social platforms</p>
                   <div class="social-icons">
@@ -76,6 +80,7 @@
           </div>
       </div>
 
-      <script src="../Jsp/demoJs.js"></script>
+      <script src="../Jsp/SignUpIn.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

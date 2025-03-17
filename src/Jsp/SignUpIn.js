@@ -20,7 +20,7 @@ function showAlert(icon, title, text) {
 }
 
 // Event listener for Login Form
-document.querySelector("login-form").addEventListener("submit", async function (event) {
+document.querySelector("#login-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
     // Get form data
@@ -69,7 +69,7 @@ document.querySelector("login-form").addEventListener("submit", async function (
 });
 
 // Event listener for Signup Form
-document.querySelector(".register form").addEventListener("submit", async function (event) {
+document.querySelector("#register-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
     // Get form data
@@ -78,14 +78,19 @@ document.querySelector(".register form").addEventListener("submit", async functi
         name: formData.get("nameRegister"),
         email: formData.get("emailRegister"),
         password: formData.get("passRegister"),
+        phone: formData.get("phoneRegister")
     };
 
-    if (!userData.name || !userData.email || !userData.password) {
+    if (!userData.name || !userData.email || !userData.password || !userData.phone) {
         showAlert('error', 'Error', 'Please fill all the fields');
         return;
     }
 
     try {
+
+        // log the start of the fetch request
+        console.log("Sending data to backend...");
+
         // Send signup request to backend
         const response = await fetch("http://localhost:8080/api/users/register", {
             method: "POST",
@@ -95,7 +100,11 @@ document.querySelector(".register form").addEventListener("submit", async functi
             body: JSON.stringify(userData)
         });
 
+        // log the response status
+        console.log("Response status:", response.status);
+
         const result = await response.json();
+        // log the result from the response
         console.log("Signup Response:", result);
 
         if (response.ok) {
