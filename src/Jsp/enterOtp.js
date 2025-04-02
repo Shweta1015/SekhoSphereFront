@@ -46,11 +46,17 @@ document.addEventListener("DOMContentLoaded", function(){
             return;
         }
 
+        const storedEmail = localStorage.getItem("otpEmail");
+        if (!storedEmail){
+            Swal.fire("Error", "No email found. Please request OTP again", "error");
+            return;
+        }
+
         //API call to verify OTP
         fetch("http://localhost:8080/api/auth/verify-otp",{
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({email: "shweta.edu.22@gmail.com", otp: enteredOtp})  
+            body: JSON.stringify({email: storedEmail, otp: enteredOtp})  
         })
         .then(response => response.json())
         .then(data => {
