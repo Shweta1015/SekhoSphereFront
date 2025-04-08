@@ -32,14 +32,24 @@ nav {
     background-color: var(--primary-color);
 }
 
-.nav__logo a {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--white);
-    text-decoration: none;
-    transition: 0.3s;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
+.logo i {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #fff, #e3f2fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 /* Hamburger menu icon */
 .nav__menu {
     display: none;

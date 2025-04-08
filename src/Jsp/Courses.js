@@ -71,5 +71,14 @@ function renderCourses(categorizedCourses) {
     }
 }
 
+// redirect to plalist page on clicking enroll btn
+document.querySelectorAll(".enroll-btn").forEach(button => {
+    button.addEventListener("click", function() {
+        const subject = this.closest(".card").querySelector("h3").innerText;
+        window.location.href = `playlist.html?subject=${encodeURIComponent(subject)}`;
+    });
+});
+
+
 // Fetch and render courses once the page is loaded
 document.addEventListener("DOMContentLoaded", fetchCourses);
