@@ -27,7 +27,7 @@ body {
     width: 700px;
 }
 .left-panel {
-    background: #0D0045;
+    background: linear-gradient(var(--primary-color), var(--primary-color-dark));
     color: white;
     width: 40%;
     display: flex;
@@ -77,7 +77,7 @@ p {
     border-radius: 5px;
 }
 .continue {
-    background: #0D0045;
+    background: linear-gradient(var(--primary-color), var(--primary-color-dark));
     color: white;
     border: none;
     padding: 10px 20px;

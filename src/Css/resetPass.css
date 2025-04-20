@@ -12,6 +12,14 @@ body {
     height: 100vh;
     background: #f5f5f5;
 }
+:root {
+    --primary-color: #5c48ee;
+    --primary-color-dark: #0f1e6a;
+    --secondary-color: #f9fafe;
+    --text-color: #333;
+    --white: #ffffff;
+    --max-width: 1200px;
+  }
 
 .container {
     display: flex;
@@ -24,7 +32,7 @@ body {
 
 .left-panel {
     width: 40%;
-    background: #190b46;
+    background: linear-gradient(var(--primary-color), var(--primary-color-dark));
     color: white;
     display: flex;
     flex-direction: column;
@@ -81,7 +89,7 @@ input:focus {
     padding: 12px;
     font-size: 16px;
     color: white;
-    background: #190b46;
+    background: linear-gradient(var(--primary-color), var(--primary-color-dark));
     border: none;
     border-radius: 5px;
     cursor: pointer;
