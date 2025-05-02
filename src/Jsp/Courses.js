@@ -1,84 +1,46 @@
-const API_URL = "http://localhost:8080/api/courses";
+const urlParams = new URLSearchParams(window.location.search);
+const subject = urlParams.get("subject");
+const level = urlParams.get("level"); // if you want to use it later
 
-//for menubar
-document.addEventListener("DOMContentLoaded", function(){
-    const menuIcon = document.querySelector(".nav__menu");
-    const navLinks = document.querySelector(".nav__links");
+const formattedSubject = subject ? subject.replaceAll('_', ' ') : "Unknown Subject";
+document.getElementById("playlist-title").innerText = `${formattedSubject} Playlists`;
+console.log("subject =", subject);
+console.log("level =", level);
 
-    menuIcon.addEventListener("click", function(){
-        navLinks.classList.toggle("show");
-    });
-});
+// Only fetch if subject is valid
+if (subject) {
+  fetch(`/api/youtube/playlists?subject=${subject}`)
+    .then(res => res.json())
+    .then(data => {
+      const items = data.items || [];
+      const videosDiv = document.getElementById("videos");
 
-async function fetchCourses() {
-    try {
-        const response = await fetch(API_URL);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const courses = await response.json();
+      if (items.length === 0) {
+        videosDiv.innerHTML = "<p>No playlists found.</p>";
+        return;
+      }
 
-        // Organize courses by category
-        const categorizedCourses = categorizeCourses(courses);
+      items.forEach(item => {
+        const title = item.snippet.title;
+        const thumbnail = item.snippet.thumbnails.medium.url;
+        const playlistId = item.id.playlistId;
+        const link = `https://www.youtube.com/playlist?list=${playlistId}`;
 
-        // Render courses dynamically
-        renderCourses(categorizedCourses);
-    } catch (error) {
-        console.error("Error fetching courses:", error);
-    }
-}
-
-// Function to categorize courses based on their category
-function categorizeCourses(courses) {
-    return courses.reduce((categories, course) => {
-        if (!categories[course.category]) {
-            categories[course.category] = [];
-        }
-        categories[course.category].push(course);
-        return categories;
-    }, {});
-}
-
-// Function to render courses dynamically in the frontend
-function renderCourses(categorizedCourses) {
-    const container = document.querySelector(".courses-container");
-    container.innerHTML = `<h1>Available Courses</h1>`; // Reset container with header
-
-    // Loop through each category and create sections
-    for (const [category, courses] of Object.entries(categorizedCourses)) {
-        const section = document.createElement("div");
-        section.className = "course-section";
-        section.innerHTML = `
-            <h2>${category} Courses</h2>
-            <div class="courses"></div>
+        const card = `
+          <div class="playlist-card">
+            <a href="${link}" target="_blank">
+              <img src="${thumbnail}" alt="${title}" />
+              <p>${title}</p>
+            </a>
+          </div>
         `;
-
-        const coursesContainer = section.querySelector(".courses");
-
-        // Add each course card to the section
-        courses.forEach((course) => {
-            const card = document.createElement("div");
-            card.className = "course-card";
-            card.innerHTML = `
-                <h3>${course.name}</h3>
-                <p>${course.description || "No description available."}</p>
-                <button>Learn More</button>
-            `;
-            coursesContainer.appendChild(card);
-        });
-
-        container.appendChild(section);
-    }
-}
-
-// redirect to plalist page on clicking enroll btn
-document.querySelectorAll(".enroll-btn").forEach(button => {
-    button.addEventListener("click", function() {
-        const subject = this.closest(".card").querySelector("h3").innerText;
-        window.location.href = `playlist.html?subject=${encodeURIComponent(subject)}`;
+        videosDiv.innerHTML += card;
+      });
+    })
+    .catch(err => {
+      console.error("Error:", err);
+      document.getElementById("videos").innerHTML = "<p>Failed to load playlists.</p>";
     });
-});
-
-
-// Fetch and render courses once the page is loaded
-document.addEventListener("DOMContentLoaded", fetchCourses);
+} else {
+  document.getElementById("videos").innerHTML = "<p>No subject selected. Please return and choose a subject.</p>";
+}

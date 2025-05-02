@@ -2,10 +2,10 @@ const SECTION_SUBJECT_PLAYLISTS = {
     SSC: {
       Mathematics: [
         {
-          id: "PL2V9FVP1vHxqB9jG5ALriXntbeulw7vbZ",
-          title: "SSC Mathematics - Full Course",
-          thumbnail:
-            "https://i.ytimg.com/vi/a-AXEdvCjYc/hqdefault.jpg?sqp=-oaymwEmCKgBEF5IWvKriqkDGQgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAE=&rs=AOn4CLDFW6jpZ5QSL-nv3vbJO4cdlQ3QKQ"
+          id: "PLjm_mvBNlvBbt8uSpdGmgYY9iiAMt_K_r",
+        title: "SSC Mathematics - Full Course",
+        // // Dynamically create the thumbnail URL based on videoId
+        // thumbnail: (videoId) => `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
         }
       ],
       Physics: [
@@ -13,15 +13,15 @@ const SECTION_SUBJECT_PLAYLISTS = {
           id: "PLVLoWQFkZbhWKEdwnxAMWbVWE16zqNWAv",
           title: "SSC Physics Explained",
           thumbnail:
-            "https://i.ytimg.com/vi/a-AXEdvCjYc/hqdefault.jpg"
+            "/api/youtube/thumbnail?videoId=Gh0qoV9TdBI"
         }
       ],
       Chemistry: [
         {
-          id: "PL2V9FVP1vHxoPmrQe1J_f7LsY8xF59EKZ",
+          id: "_UIDTU9iMOg",
           title: "SSC Chemistry Revision",
           thumbnail:
-            "https://i.ytimg.com/vi/FzU86qMAzdI/hqdefault.jpg"
+            "https://i.ytimg.com/vi/_UIDTU9iMOg/hqdefault.jpg"
         }
       ],
       Biology: [
@@ -129,7 +129,6 @@ const subject = decodeURIComponent(urlParams.get("subject") || "Mathematics");
 
 document.getElementById("subject-title").textContent = `${level} - ${subject} Playlists`;
 
-// ✅ FIXED: Make sure both `section` and `subject` are passed
 console.log("Level:", level);
 console.log("Subject:", subject);
 console.log("Available sections:", Object.keys(SECTION_SUBJECT_PLAYLISTS));
@@ -142,9 +141,37 @@ fetchPlaylists(level, subject);
 async function fetchPlaylists(section, subject) {
     const playlists = SECTION_SUBJECT_PLAYLISTS[section]?.[subject];
     if (playlists && playlists.length > 0){
+      //Now, fetch details from youtube API
+      for (const playlist of playlists){
+        const playlistDetails = await fetchPlaylistDetails(playlist.id);
+        playlist.thumbnail = playlistDetails.thumbnail;
+        playlist.title = playlistDetails.title;
+      }
         displayPlaylists(playlists);
     } else {
         PLAYLIST_CONTAINER.innerHTML = "<p>No curated playlists for this subject.</p>";
+    }
+}
+
+
+// Fetch playlist details using YouTube API
+async function fetchPlaylistDetails(playlistId){
+  const url = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${API_KEY}`;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    if (data.items && data.items.length > 0) {
+        const playlist = data.items[0].snippet;
+        return {
+            title: playlist.title,
+            thumbnail: playlist.thumbnails.high.url
+        };
+    } else {
+        console.error("Playlist not found!");
+        return {
+            title: "Unknown Playlist",
+            thumbnail: "https://i.ytimg.com/vi/default_thumbnail.jpg"
+        };
     }
 }
 
@@ -157,12 +184,13 @@ function displayPlaylists(playlists) {
         <div class="playlist-card">
             <img src="${playlist.thumbnail}" alt="${playlist.title}" />
             <h3>${playlist.title}</h3>
-            <button onclick="selectPlaylist('${playlist.id}')">Select Playlist</button>
+            <button class="watch-btn" onclick="selectPlaylist('${playlist.id}')">Select Playlist</button>
         </div>
         `;
         PLAYLIST_CONTAINER.innerHTML += card;
     });
 }
+
 
 // Store selected playlist and redirect
 function selectPlaylist(playlistId) {
