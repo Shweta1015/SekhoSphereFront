@@ -2,8 +2,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const subject = urlParams.get("subject");
 const level = urlParams.get("level");
 
-console.log("subject =", subject);
-console.log("level =", level);
 
 // Optional: implement this if you want to validate token on server
 async function isTokenValid(token) {

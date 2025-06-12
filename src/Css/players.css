@@ -80,7 +80,8 @@
       right: 1px;
       background-color: var(--primary-color);
       padding: 10px 0;
-      border-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
       z-index: 1000;
     }
   
