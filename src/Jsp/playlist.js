@@ -4,116 +4,130 @@ const SECTION_SUBJECT_PLAYLISTS = {
         {
           id: "PLjm_mvBNlvBbt8uSpdGmgYY9iiAMt_K_r",
         title: "SSC Mathematics - Full Course",
-        // // Dynamically create the thumbnail URL based on videoId
-        // thumbnail: (videoId) => `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
         }
       ],
       Physics: [
         {
-          id: "PLVLoWQFkZbhWKEdwnxAMWbVWE16zqNWAv",
+          id: "PLVLoWQFkZbhXAipqg8dmzLQOED1uxgUTx",
           title: "SSC Physics Explained",
-          thumbnail:
-            "/api/youtube/thumbnail?videoId=Gh0qoV9TdBI"
         }
       ],
       Chemistry: [
         {
-          id: "_UIDTU9iMOg",
+          id: "PLXTyt_wUBqQ6CH1N9xkqDNFpuY6eK6QOE",
           title: "SSC Chemistry Revision",
-          thumbnail:
-            "https://i.ytimg.com/vi/_UIDTU9iMOg/hqdefault.jpg"
         }
       ],
       Biology: [
         {
-          id: "PLfP3JxW-T70EtxF1iYRsLkJOxjQoDxuQp",
+          id: "PLOIVkOjhZ1iHkq_tcgTS9nMpbLhmDMRrW",
           title: "Biology | Full Chapter Series",
-          thumbnail:
-            "https://i.ytimg.com/vi/6sEEMNzrGJY/hqdefault.jpg"
         }
       ]
     },
     HSC: {
       Mathematics: [
         {
-          id: "PL9RcWoqXmzaJ95_Q8lT9sksykc_cgGtyQ",
+          id: "PLVLoWQFkZbhWENNsv70Pwzxb_ddDm8EjM",
           title: "HSC Maths Crash Course",
-          thumbnail:
-            "https://i.ytimg.com/vi/BJzIoFgk1YU/hqdefault.jpg"
         }
       ],
       Physics: [
         {
-          id: "PLgzsL8LxA0zV-m9XWgih-6HgEKwJruC7d",
+          id: "PLVLoWQFkZbhU6U0BhqGieiARjUYmyoa8p",
           title: "HSC Physics Lectures",
-          thumbnail:
-            "https://i.ytimg.com/vi/i0CcfHh_XTo/hqdefault.jpg"
         }
       ],
       Chemistry: [
         {
-          id: "PLgzsL8LxA0zV9AL9WbR-H3UhVSM_G1gAV",
+          id: "PLVLoWQFkZbhVdStvLVoS3kU7RBaJR4JTR",
           title: "HSC Chemistry Explained",
-          thumbnail:
-            "https://i.ytimg.com/vi/ZqFrWVr9DUE/hqdefault.jpg"
         }
       ],
       Biology: [
         {
-          id: "PL5Ygq9LBBdUYN2xMGtO7_MjkPBaaSflXB",
+          id: "PLVLoWQFkZbhXy7if3Grafu9UngDHol9EX",
           title: "HSC Biology Full Series",
-          thumbnail:
-            "https://i.ytimg.com/vi/7ZLQDx4R3Ww/hqdefault.jpg"
         }
       ]
     },
     Technical: {
-      Web_Development: [
+      Java: [
         {
-          id: "PLillGF-RfqbZ2ybcoD2OaabW2P7Ws8CWu",
-          title: "Web Development Bootcamp",
-          thumbnail:
-            "https://i.ytimg.com/vi/pQN-pnXPaVg/hqdefault.jpg"
+          id: "PLfqMhTWNBTe3LtFWcvwpqTkUSlB32kJop",
+          title: "Core Java",
         }
       ],
-      Data_Science: [
+      Python: [
         {
-          id: "PLKnIA16_RmvbV1wGdN2pVjE6ZnqUqF3L0",
-          title: "Data Science with Python",
-          thumbnail:
-            "https://i.ytimg.com/vi/ua-CiDNNj30/hqdefault.jpg"
+          id: "PLGjplNEQ1it8-0CmoljS5yeV-GlKSUEt0",
+          title: "Python",
+        }
+      ],
+      JavaScript: [
+        {
+          id: "PLu71SKxNbfoBuX3f4EOACle2y-tRC5Q37",
+          title: "JavaScript",
+        }
+      ],
+      C_Programming: [
+        {
+          id: "PLxgZQoSe9cg1drBnejUaDD9GEJBGQ5hMt",
+          title: "C concepts"
+        }
+      ],
+      Cpp_Programming: [
+        {
+          id: "PLxgZQoSe9cg0df_GxVjz3DD_Gck5tMXAd",
+          title: "C++ concepts"
+        }
+      ],
+      Dsa_in_Cpp: [
+        {
+          id: "PLgUwDviBIf0oF6QL8m22w1hIDC1vJ_BHz",
+          title: "DSA in C++"
+        }
+      ],
+      Dsa_in_Java: [
+        {
+          id: "PL9gnSGHSqcnr_DxHsP7AW9ftq0AtAyYqJ",
+          title: "DSA in Java "
+        }
+      ],
+      Web_Development: [
+        {
+          id: "PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w",
+          title: "Web Development Bootcamp",
+        }
+      ],
+      Data_Analytics: [
+        {
+          id: "PLjVLYmrlmjGdRs1sGqRrTE-EMraLclJga",
+          title: "Data Analyst",
         }
       ],
       Cyber_Security: [
         {
-          id: "PLTjRvDozrdlxEIuOBZkMAK5uiqp8rHUax",
+          id: "PL9ooVrP1hQOGPQVeapGsJCktzIO4DtI4_",
           title: "Ethical Hacking 101",
-          thumbnail:
-            "https://i.ytimg.com/vi/3Kq1MIfTWCE/hqdefault.jpg"
         }
       ],
-      Artificial_Intelligence: [
+      Machine_Learning: [
         {
-          id: "PLzvRQMJ9HDiTnN3NvtnjT3KjF0wZlF1xA",
+          id: "PLeo1K3hjS3uvCeTYTeyfe0-rN5r8zn9rw",
           title: "Intro to AI",
-          thumbnail:
-            "https://i.ytimg.com/vi/8ZKZKMXYn3U/hqdefault.jpg"
         }
       ],
-      Mobile_App_Development: [
+      Cloud_Computing: [
         {
-          id: "PLlxmoA0rQ-LwfW2rVhXBAq3zDpD7OWpRR",
+          id: "PLxCzCOWd7aiHRHVUtR-O52MsrdUSrzuy4",
           title: "Android App Dev for Beginners",
-          thumbnail:
-            "https://i.ytimg.com/vi/fis26HvvDII/hqdefault.jpg"
         }
       ],
       UI_UX_Design: [
         {
-          id: "PLgYiyoyNPrv_wGQdMwQrwSVQVJd0ZGWfP",
+          id: "PLdvOfoe7PXT0ouChAnR1nHlT8BJIo5hP_",
           title: "UI/UX Design Principles",
-          thumbnail:
-            "https://i.ytimg.com/vi/Ovj4hFxko7c/hqdefault.jpg"
         }
       ]
     }

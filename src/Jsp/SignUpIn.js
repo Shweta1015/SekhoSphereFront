@@ -19,6 +19,11 @@ function showAlert(icon, title, text) {
     });
 }
 
+// Validate name (letters and spaces only)
+function isValidName(name) {
+    return /^[A-Za-z\s]+$/.test(name);
+}
+
 // Event listener for Login Form
 document.querySelector("#login-form").addEventListener("submit", async function (event) {
     event.preventDefault();
@@ -122,4 +127,3 @@ document.querySelector("#register-form").addEventListener("submit", async functi
         showAlert('error', 'Error', error.message || 'Something went wrong');
     }
 });
-
