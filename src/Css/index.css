@@ -209,6 +209,21 @@ nav {
   background-color: var(--primary-color-dark);
 }
 
+#typewriter {
+  font-size: 2rem;
+  font-weight: bold;
+  white-space: pre-line;
+  border-right: 2px solid black;
+  overflow: hidden;
+  width: fit-content;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+
 .image__container {
   position: relative;
   display: flex; /* Change to flex to stack content vertically */

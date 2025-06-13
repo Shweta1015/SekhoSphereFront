@@ -2,23 +2,39 @@ const SECTION_SUBJECT_PLAYLISTS = {
     SSC: {
       Mathematics: [
         {
+          id: "PLjm_mvBNlvBZ8d1EGhXxiVnviM4yPf-Uq",
+          title: "SSC Algebra",
+        },
+        {
           id: "PLjm_mvBNlvBbt8uSpdGmgYY9iiAMt_K_r",
-        title: "SSC Mathematics - Full Course",
+          title: "SSC Goemtry - Full Course",
         }
       ],
       Physics: [
         {
           id: "PLVLoWQFkZbhXAipqg8dmzLQOED1uxgUTx",
           title: "SSC Physics Explained",
+        },
+        {
+          id: "PLSgL45_Cz9Y8GTUNQ8FE-QrvenajHD46R",
+          title:"SSC Physics",
         }
       ],
       Chemistry: [
+        {
+          id: "PLVLoWQFkZbhV8gdBQOVjUpLW_3jwak-uA",
+          title: "SSC Chemistry"
+        },
         {
           id: "PLXTyt_wUBqQ6CH1N9xkqDNFpuY6eK6QOE",
           title: "SSC Chemistry Revision",
         }
       ],
       Biology: [
+        {
+          id: "PLVLoWQFkZbhUmaeiHa7xKTQ3ByL6XujcQ",
+          title: "SSC Biology"
+        },
         {
           id: "PLOIVkOjhZ1iHkq_tcgTS9nMpbLhmDMRrW",
           title: "Biology | Full Chapter Series",
@@ -30,15 +46,27 @@ const SECTION_SUBJECT_PLAYLISTS = {
         {
           id: "PLVLoWQFkZbhWENNsv70Pwzxb_ddDm8EjM",
           title: "HSC Maths Crash Course",
+        },
+        {
+          id: "PL2xF3HCNxGM8r2rr9jsoFgRGevBAnrJhB",
+          title: "'HSC Maths"
         }
       ],
       Physics: [
         {
-          id: "PLVLoWQFkZbhU6U0BhqGieiARjUYmyoa8p",
+          id:"PLVLoWQFkZbhU6U0BhqGieiARjUYmyoa8p",
+          title:"HSC Physics",
+        },
+        {
+          id: "PLCzaIJYXP5YffCcaVxQnQOp87eCeqr4oy",
           title: "HSC Physics Lectures",
         }
       ],
       Chemistry: [
+        {
+          id: "PL2xF3HCNxGM-u96iJBHtwY733QgthoGu-",
+          title: "HSC Chemistry"
+        },
         {
           id: "PLVLoWQFkZbhVdStvLVoS3kU7RBaJR4JTR",
           title: "HSC Chemistry Explained",
@@ -48,6 +76,10 @@ const SECTION_SUBJECT_PLAYLISTS = {
         {
           id: "PLVLoWQFkZbhXy7if3Grafu9UngDHol9EX",
           title: "HSC Biology Full Series",
+        },
+        {
+          id: "PL2xF3HCNxGM_00mF5cdafSi1DNk48haoA",
+          title: "HSC Biology"
         }
       ]
     },
