@@ -60,6 +60,7 @@ document.querySelector("#login-form").addEventListener("submit", async function 
 
         // Store authentication token in local storage
         localStorage.setItem('authToken', result.token);
+        localStorage.setItem("email", result.email);
 
         showAlert('success', 'Success', 'Login successful!');
 

@@ -175,12 +175,6 @@ const subject = decodeURIComponent(urlParams.get("subject") || "Mathematics");
 
 document.getElementById("subject-title").textContent = `${level} - ${subject} Playlists`;
 
-console.log("Level:", level);
-console.log("Subject:", subject);
-console.log("Available sections:", Object.keys(SECTION_SUBJECT_PLAYLISTS));
-console.log("Available subjects in section:", Object.keys(SECTION_SUBJECT_PLAYLISTS[level] || {}));
-console.log("Matching playlists:", SECTION_SUBJECT_PLAYLISTS[level]?.[subject]);
-
 fetchPlaylists(level, subject);
 
 // Fetch curated playlists based on section & subject
@@ -226,11 +220,13 @@ function displayPlaylists(playlists) {
     PLAYLIST_CONTAINER.innerHTML = "";
 
     playlists.forEach((playlist) => {
+      const userEmail = localStorage.getItem("email");
         const card = `
         <div class="playlist-card">
             <img src="${playlist.thumbnail}" alt="${playlist.title}" />
             <h3>${playlist.title}</h3>
-            <button class="watch-btn" onclick="selectPlaylist('${playlist.id}')">Select Playlist</button>
+            <button class="watch-btn" onclick="selectPlaylist('${playlist.id}')">View</button>
+            <button class="add-btn" onclick="addToLibrary('${playlist.id}', '${playlist.title}', '${playlist.thumbnail}', '${subject}', '${userEmail}')"> Add to library</button>
         </div>
         `;
         PLAYLIST_CONTAINER.innerHTML += card;
@@ -242,4 +238,33 @@ function displayPlaylists(playlists) {
 function selectPlaylist(playlistId) {
     localStorage.setItem("selectedPlaylist", playlistId);
     window.location.href = "Players.html";
+}
+
+//to add playlist to library
+function addToLibrary(playlistId, title, thumbnail, subject, userEmail){
+  const data = {
+    userEmail,
+        playlistId,
+        title,
+        thumbnail,
+        subject
+  };
+
+  fetch("http://localhost:8080/api/library/add",{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then((response) => {
+    if (response.ok){
+      alert("Playlist added to library!");
+    }else{
+      alert("Failed to add playlist.");
+    }
+  })
+  .catch((error) => {
+    console.error("Error adding to library: ", error);
+  });
 }

@@ -190,7 +190,7 @@ nav {
     background: var(--primary-color-dark);
 }
 
-.add-btn {
+.remove-btn {
     margin-top: 10px;
     padding: 0.6rem 1rem;
     background: var(--primary-color);
@@ -200,8 +200,6 @@ nav {
     cursor: pointer;
 }
 
-.add-btn:hover {
+.remove-btn:hover {
     background: var(--primary-color-dark);
 }
-
-
