@@ -1,5 +1,12 @@
+function showAlert(icon, title, text){
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: text
+    });
+}
 
-document.getElementById("resetForm").addEventListener("submit", async function(event){
+document.getElementById("login-form").addEventListener("submit", async function(event){
     event.preventDefault();
 
     const email = document.getElementById("email").value;
@@ -12,9 +19,21 @@ document.getElementById("resetForm").addEventListener("submit", async function(e
 
     if(response.ok){
         localStorage.setItem("otpEmail", email);
-        Swal.fire("Success", "OTP sent successfully!", "success");
-        window.location.href = "EnterOtp.html";   //Redirect to OTP input
+        Swal.fire("Success", "OTP sent successfully!", "success").then(() =>{
+            window.location.href = "EnterOtp.html";   //Redirect to OTP input
+        });
     }else{
         Swal.fire("Error","Failed to send OTP. Please try again.", "error");
     }
+});
+
+// click animation to button
+document.querySelectorAll(".btn").forEach((button) => {
+  button.addEventListener("click", function () {
+    this.classList.add("clicked");
+
+    setTimeout(() => {
+      this.classList.remove("clicked");
+    }, 300); 
+  });
 });

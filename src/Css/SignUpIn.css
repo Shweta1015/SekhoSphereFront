@@ -37,15 +37,15 @@ body{
     overflow: hidden;
 }
 
-    .container h1{
-        font-size: 36px;
-        margin: -10px 0;
-    }
+.container h1{
+    font-size: 36px;
+    margin: -10px 0;
+}
 
-    .container p{
-        font-size: 14.5px;
-        margin: 15px 0;
-    }
+.container p{
+    font-size: 14.5px;
+    margin: 15px 0;
+}
 
 form{ width: 100%; }
 
@@ -120,6 +120,13 @@ form{ width: 100%; }
     font-size: 16px;
     color: #fff;
     font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn.clicked {
+    transform: scale(0.95); /* Zoom out effect */
+    background: linear-gradient(to right, #4e3fe4, #0c1b5f); /* Slight variation */
+    box-shadow: 0 0 20px rgba(92, 72, 238, 0.6); /* Glow effect */
 }
 
 .social-icons{

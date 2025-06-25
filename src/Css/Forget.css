@@ -64,22 +64,7 @@ form{ width: 100%; }
     transition: .6s ease-in-out 1.2s, visibility 0s 1s;
 }
 
-.container.active .form-box{ right: 50%; }
-
-.otp-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.otp-container input {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+    .container.active .form-box{ right: 50%; }
 
 .input-box{
     position: relative;
@@ -117,7 +102,7 @@ form{ width: 100%; }
         color: #333;
     }
 
-.continue{
+.btn{
     width: 100%;
     height: 48px;
     background: linear-gradient(
@@ -135,7 +120,7 @@ form{ width: 100%; }
     transition: all 0.3s ease;
 }
 
-.continue.clicked {
+.btn.clicked {
     transform: scale(0.95); /* Zoom out effect */
     background: linear-gradient(to right, #4e3fe4, #0c1b5f); /* Slight variation */
     box-shadow: 0 0 20px rgba(92, 72, 238, 0.6); /* Glow effect */

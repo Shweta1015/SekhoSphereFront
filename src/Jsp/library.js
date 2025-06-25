@@ -51,9 +51,13 @@ function selectPlaylist(playlistId) {
 
 //to remove playlist 
 async function removeFromLibrary(playlistId) {
+  const authToken = localStorage.getItem("authToken");
   try {
     const response = await fetch(`http://localhost:8080/api/library/${userEmail}/${playlistId}`, {
       method: "DELETE",
+      headers:{
+        "Authorization": `Bearer ${authToken}`
+      }
     });
 
     if (response.ok) {
