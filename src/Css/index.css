@@ -28,7 +28,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../images/bg.jpg'); /* update with your actual path */
+  background-image: url('../images/bg.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,7 +94,7 @@ nav {
   color: var(--white);
 }
 
-/* Navbar links (Default horizontal) */
+
 .nav__links{
   list-style: none;
   display: flex;
@@ -258,12 +258,11 @@ nav {
   50% { border-color: transparent; }
 }
 
-
 .image__container {
   position: relative;
-  display: flex; /* Change to flex to stack content vertically */
-  flex-direction: column; /* Stack image and content vertically */
-  align-items: center; /* Center items horizontally */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
 .image__container img {
@@ -275,7 +274,7 @@ nav {
 
 .image__content {
   position: absolute;
-  bottom: 20px; /* Position the content above the bottom of the image */
+  bottom: 20px; 
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(
@@ -295,4 +294,50 @@ nav {
 
 .image__content li {
   margin-bottom: 0.5rem;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  .content__container h1 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .content__container p {
+    font-size: 0.9rem;
+  }
+
+  .content__container form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .content__container input,
+  .content__container button {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .image__container img {
+    max-width: 90%;
+  }
+
+  .image__content {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    width: 50%;
+  }
+
+  .nav__links.active {
+    display: flex !important;
+  }
 }

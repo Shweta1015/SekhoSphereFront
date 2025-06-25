@@ -1,28 +1,24 @@
-document.getElementById("resetForm").addEventListener("submit", async function(event){
-    event.preventDefault();
+// Show password constraints popup when focusing on password field
+let hasSeenPasswordPopup = false;
 
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirmPassword").value;
-    const email = localStorage.getItem("otpEmail");  //Retrieve email stored during OTP verification
-
-    const errorMessage = document.getElementById("error-message");
-
-    // Show password constraints popup when focusing on password field
 document.getElementById("password").addEventListener("focus", () => {
-    Swal.fire({
-        title: 'Password Requirements',
-        html: `
-            <ul style="text-align: left;">
-                <li>✅ At least one <strong>uppercase</strong> letter</li>
-                <li>✅ At least one <strong>lowercase</strong> letter</li>
-                <li>✅ At least one <strong>number</strong></li>
-                <li>✅ At least one <strong>special character</strong> (!@#$%^&*)</li>
-                <li>❌ No <strong>spaces</strong></li>
-            </ul>
-        `,
-        icon: 'info',
-        confirmButtonText: 'Got it!'
-    });
+    if (!hasSeenPasswordPopup) {
+        hasSeenPasswordPopup = true;
+        Swal.fire({
+            title: 'Password Requirements',
+            html: `
+                <ul style="text-align: left;">
+                    <li>✅ At least one <strong>uppercase</strong> letter</li>
+                    <li>✅ At least one <strong>lowercase</strong> letter</li>
+                    <li>✅ At least one <strong>number</strong></li>
+                    <li>✅ At least one <strong>special character</strong> (!@#$%^&*)</li>
+                    <li>❌ No <strong>spaces</strong></li>
+                </ul>
+            `,
+            icon: 'info',
+            confirmButtonText: 'Got it!'
+        });
+    }
 });
 
 // Password validation function
@@ -35,6 +31,16 @@ function isValidPassword(password) {
 
     return hasUpper && hasLower && hasNumber && hasSpecial && !hasSpace;
 }
+
+document.getElementById("resetForm").addEventListener("submit", async function(event){
+    event.preventDefault();
+
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const email = localStorage.getItem("otpEmail");  //Retrieve email stored during OTP verification
+
+    const errorMessage = document.getElementById("error-message");
+
     // Check if password meets constraints
     if (!isValidPassword(password)) {
         errorMessage.textContent = "Password does not meet all constraints.";
