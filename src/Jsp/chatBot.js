@@ -1,3 +1,21 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+        // Show SweetAlert2 popup
+        Swal.fire({
+            icon: "warning",
+            title: "Login Required",
+            text: "Please log in to access the Chatbot.",
+            confirmButtonText: "Go to Login"
+        }).then(() => {
+            // Redirect to login page after confirmation
+            window.location.href = "SignUpIn.html";
+        });
+    }
+});
+
+
 $(document).ready(function (){
     const messageList = $(".messages");
     const input = $("#msg_input");

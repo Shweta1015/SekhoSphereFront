@@ -12,7 +12,7 @@
 
 	<link rel="stylesheet" type="text/css" href="../Css/chatBot.css">
 </head>
-<body>
+<body onload="updateNavBar()">
 	<div class="container">
 		<div class="row padded_row">
 			<!-- right side content -->
@@ -41,8 +41,15 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
 	</script>
 
-	<!-- custom scripts -->
+	<!-- <script>
+      function toggleMenu(){
+        let navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+      }
+    </script> -->
 	<script src="../Jsp/chatBot.js"></script>
+	<script src="../Jsp/Auth.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

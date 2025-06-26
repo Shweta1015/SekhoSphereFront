@@ -65,6 +65,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  z-index: 1000;
 }
 
 .logo {
@@ -118,7 +119,6 @@ nav {
     padding: 10px 0;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    z-index: 1000;
   }
 
   .nav__links.show{
