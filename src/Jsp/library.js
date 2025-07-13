@@ -49,6 +49,14 @@ function selectPlaylist(playlistId) {
   window.location.href = "Players.html";
 }
 
+function showAlert(icon, title, text){
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: text
+    });
+}
+
 //to remove playlist 
 async function removeFromLibrary(playlistId) {
   const authToken = localStorage.getItem("authToken");
@@ -61,14 +69,14 @@ async function removeFromLibrary(playlistId) {
     });
 
     if (response.ok) {
-      alert("Playlist removed!");
+      showAlert('success', 'Removed', 'Playlist removed from library!');
       fetchLibraryPlaylists(); // Refresh the library
     } else {
       alert("Failed to remove playlist.");
     }
   } catch (error) {
     console.error("Error removing playlist:", error);
-    alert("Something went wrong while removing the playlist.");
+    showAlert('Failed', 'Not Removed', 'Failed to remove!');
   }
 }
 

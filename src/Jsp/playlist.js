@@ -39,7 +39,7 @@ const SECTION_SUBJECT_PLAYLISTS = {
           id: "PLOIVkOjhZ1iHkq_tcgTS9nMpbLhmDMRrW",
           title: "Biology | Full Chapter Series",
         }
-      ]
+      ],
     },
     HSC: {
       Mathematics: [
@@ -177,11 +177,12 @@ document.getElementById("subject-title").textContent = `${level} - ${subject} Pl
 
 fetchPlaylists(level, subject);
 
+
 // Fetch curated playlists based on section & subject
 async function fetchPlaylists(section, subject) {
     const playlists = SECTION_SUBJECT_PLAYLISTS[section]?.[subject];
     if (playlists && playlists.length > 0){
-      //Now, fetch details from youtube API
+      //fetch details from youtube API
       for (const playlist of playlists){
         const playlistDetails = await fetchPlaylistDetails(playlist.id);
         playlist.thumbnail = playlistDetails.thumbnail;
@@ -240,6 +241,14 @@ function selectPlaylist(playlistId) {
     window.location.href = "Players.html";
 }
 
+function showAlert(icon, title, text){
+    Swal.fire({
+        icon: icon,
+        title: title,
+        text: text
+    });
+}
+
 //to add playlist to library
 function addToLibrary(playlistId, title, thumbnail, subject, userEmail){
   const data = {
@@ -259,9 +268,9 @@ function addToLibrary(playlistId, title, thumbnail, subject, userEmail){
   })
   .then((response) => {
     if (response.ok){
-      alert("Playlist added to library!");
+      showAlert('success', 'Added', 'Playlist added to your library!');
     }else{
-      alert("Failed to add playlist.");
+      alert('Failed','Not Added','Failed to add playlist!');
     }
   })
   .catch((error) => {

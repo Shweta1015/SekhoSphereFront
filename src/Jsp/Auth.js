@@ -53,4 +53,4 @@ function logoutUser(){
 
 // Run updateNavBar when the page loads
 document.addEventListener("DOMContentLoaded", updateNavBar);
-// window.onload = updateNavBar;
+
